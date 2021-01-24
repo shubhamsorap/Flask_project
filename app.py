@@ -3,9 +3,12 @@ from flask import Flask, render_template, request
 
 import pandas as pd
 import numpy as np 
+import sys
+import logging
 
 app = Flask(__name__)
-
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 
 @app.route('/')
 def home():
